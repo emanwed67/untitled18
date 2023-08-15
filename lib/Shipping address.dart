@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ShippingAddress extends StatelessWidget {
+class ShippingAddress extends StatefulWidget {
    ShippingAddress({super.key});
+
+  @override
+  State<ShippingAddress> createState() => _ShippingAddressState();
+}
+
+class _ShippingAddressState extends State<ShippingAddress> {
   String? car;
 
   @override
@@ -27,8 +33,15 @@ class ShippingAddress extends StatelessWidget {
           children: [
             Row(
               children: [
-                Checkbox(value:false, onChanged: (value){
-                  car = "a";
+                Checkbox(value:car=="a", onChanged: (value){
+                  if(car=='a'){
+                    car = null;
+                  } else{
+                    car='a';
+                  }
+                  setState(() {
+
+                  });
 
                 },),
                 Expanded(child: Text('Use as the shipping address',
@@ -53,14 +66,13 @@ class ShippingAddress extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 20,),
-                   Row(
-                     children: [
-                       Text("25 rue Robert Latouche,Nice,06200,Cote\n D azur,France"
-                           ,
-                          style:TextStyle(fontSize:14,
-                              fontWeight:FontWeight.w400,color:Color(0xff808080)  ) ,),
-                      ],
-                    ),
+                       Expanded(
+                         child: Text("25 rue Robert Latouche,Nice,06200,Cote D azur,France"
+                             ,
+                            style:TextStyle(fontSize:14,
+                                fontWeight:FontWeight.w400,color:Color(0xff808080)  ) ,),
+                       ),
+
                   ],
                 ),
               ),
@@ -68,8 +80,15 @@ class ShippingAddress extends StatelessWidget {
             SizedBox(height:12 ,),
             Row(
               children: [
-                Checkbox(value:false, onChanged: (value){
-                  car="b";
+                Checkbox(value:car=="b", onChanged: (value){
+                  if(car=='b'){
+                    car=null;
+                  }else{
+                    car='b';
+                  }
+                  setState(() {
+
+                  });
 
 
                 },),
@@ -95,14 +114,12 @@ class ShippingAddress extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 20,),
-                    Row(
-                      children: [
-                        Text("25 rue Robert Latouche,Nice,06200,Cote \n Dazur,France"
+                        Text("25 rue Robert Latouche,Nice,06200,Cote Dazur,France"
                           ,
                           style:TextStyle(fontSize:14,
                               fontWeight:FontWeight.w400,color:Color(0xff808080)  ) ,),
-                      ],
-                    ),
+
+
                   ],
                 ),
               ),
@@ -110,8 +127,16 @@ class ShippingAddress extends StatelessWidget {
             SizedBox(height: 12,),
             Row(
               children: [
-                Checkbox(value:false, onChanged: (value){
-                  car="c";
+                Checkbox(value:car=="c", onChanged: (value){
+                  if(car=='c'){
+                    car = null;
+                  } else{
+                    car='c';
+                  }
+
+                  setState(() {
+
+                  });
 
                 },),
                 Expanded(child: Text('Use as the shipping address',
@@ -138,10 +163,12 @@ class ShippingAddress extends StatelessWidget {
                     SizedBox(height: 20,),
                     Row(
                       children: [
-                        Text("25 rue Robert Latouche,Nice,06200,Cote\n Dazur,france"
-                          ,
-                          style:TextStyle(fontSize:14,
-                              fontWeight:FontWeight.w400,color:Color(0xff808080)  ) ,),
+                        Expanded(
+                          child: Text("25 rue Robert Latouche,Nice,06200,Cote Dazur,france"
+                            ,
+                            style:TextStyle(fontSize:14,
+                                fontWeight:FontWeight.w400,color:Color(0xff808080)  ) ,),
+                        ),
                       ],
                     ),
                   ],
@@ -163,5 +190,4 @@ class ShippingAddress extends StatelessWidget {
       ),
     );
   }
-
 }
